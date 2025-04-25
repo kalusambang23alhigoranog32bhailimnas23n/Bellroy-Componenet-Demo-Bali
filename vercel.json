@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "installCommand": "npm install && chmod +x ./node_modules/.bin/astro",
+        "buildCommand": "npm run build"
+      }
+    }
+  ]
+} 
