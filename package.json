@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "elm-test",
-    "postinstall": "chmod +x ./node_modules/.bin/astro"
+    "postinstall": "chmod +x ./node_modules/.bin/astro && chmod +x ./node_modules/.bin/elm"
   },
   "dependencies": {
     "astro": "^3.6.0",
