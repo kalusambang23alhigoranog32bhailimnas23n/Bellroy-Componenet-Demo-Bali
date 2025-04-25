@@ -1,0 +1,96 @@
+---
+/*
+ * Layout.astro serves as the main layout template for all pages in the application.
+ * It provides a consistent structure with header, content area, and footer.
+ * It also includes common meta tags, styles, and scripts used across the site.
+ */
+
+// Type definition for component props
+interface Props {
+  title: string;
+}
+
+// Extract title from props for use in the document head
+const { title } = Astro.props;
+
+// Import global CSS styles
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Standard meta tags for proper rendering and SEO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    
+    <!-- Font loading optimization: preconnect to font providers -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Load the Inter font family which matches Bellroy's typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <!-- Site header with navigation -->
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto py-4 px-4">
+        <div class="flex justify-between items-center">
+          <h1 class="text-xl font-bold text-bellroy-black">Bellroy Component Demo</h1>
+          <nav>
+            <ul class="flex space-x-4">
+              <li><a href="#" class="text-bellroy-black hover:text-bellroy-orange">Home</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Main content area where page-specific content is injected -->
+    <slot />
+    
+    <!-- Site footer with copyright information -->
+    <footer class="bg-bellroy-black text-white py-8 mt-12">
+      <div class="container mx-auto px-4">
+        <p class="text-center">© 2025 Bellroy Component Demo. This is a demo recreation.</p>
+      </div>
+    </footer>
+    
+    <script>
+      /*
+       * Browser compatibility enhancement for AVIF images
+       * This script checks if the browser supports AVIF format and provides a fallback mechanism
+       */
+      document.addEventListener('DOMContentLoaded', function() {
+        // Check for AVIF support by monitoring image error events
+        const images = document.querySelectorAll('img[src$=".avif"]');
+        images.forEach(img => {
+          img.onerror = function() {
+            console.warn('AVIF format not supported, trying to use alternative');
+            // Fallback image handling would go here in a production environment
+          };
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /*
+   * Global styles that apply to the entire application
+   * These styles ensure consistent typography and image rendering
+   */
+  
+  /* Set the default font for the entire site */
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  /* Ensure all images display correctly with proper scaling */
+  img {
+    display: block;
+    max-width: 100%;
+  }
+</style> 

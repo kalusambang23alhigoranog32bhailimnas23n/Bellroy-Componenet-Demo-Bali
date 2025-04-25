@@ -1,0 +1,76 @@
+/* 
+ * Global CSS styles for the Bellroy Component Demo
+ * This file includes Tailwind imports and custom styles that apply across the application.
+ */
+
+/* Tailwind CSS framework imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+ * Component animations and transitions
+ * These styles enhance the user experience with subtle animations
+ */
+
+/* Product card hover effect */
+.product-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Color selection options animation */
+.color-option {
+  transition: all 0.2s ease-in-out;
+}
+
+.color-option:hover {
+  transform: scale(1.1);
+}
+
+/* 
+ * Image display optimizations 
+ * Ensures consistent rendering of product images
+ */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 
+ * Bellroy brand color variables
+ * Defining colors as CSS variables for consistent use throughout the application
+ */
+:root {
+  --bellroy-orange: #FF5D00;
+  --bellroy-black: #1D1D1D;
+  --bellroy-gray: #F5F5F5;
+}
+
+/* 
+ * Navigation elements for image galleries
+ * Enhances the appearance and interaction with gallery navigation buttons
+ */
+.gallery-nav-button {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.gallery-nav-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* 
+ * Thumbnail image consistency
+ * Ensures all thumbnail images have uniform dimensions
+ */
+.thumbnail-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+} 

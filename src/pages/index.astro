@@ -1,0 +1,72 @@
+---
+/*
+ * This is the main page of the Bellroy product showcase application.
+ * It imports the Layout component and embeds the Elm application.
+ */
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Bellroy Products - Phone Cases">
+  <main class="container mx-auto py-8 px-4">
+    <!-- Main heading for the product showcase -->
+    <h1 class="text-2xl font-bold text-bellroy-black mb-6">Phone Cases & Accessories</h1>
+    
+    <!-- Container for the Elm application -->
+    <!-- The Elm app will be mounted here via JavaScript -->
+    <div id="elm-app" class="w-full"></div>
+   
+  </main>
+</Layout>
+
+<script>
+  /*
+   * This script initializes the Elm application and handles image loading.
+   * It imports the compiled Elm code and mounts it to the #elm-app div.
+   */
+  import { Elm } from '../elm/Main.elm';
+
+  // Initialize the Elm application with the target DOM node
+  const app = Elm.Main.init({
+    node: document.getElementById('elm-app')
+  });
+
+  // Image loading optimization
+  // This ensures images fade in smoothly after they're loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+      if (!img.complete) {
+        img.style.opacity = '0';
+        img.onload = function() {
+          img.style.opacity = '1';
+        };
+      }
+    });
+  });
+</script>
+
+<style>
+  /*
+   * Global styles for the page
+   * These styles apply to elements within this component and its children
+   */
+
+  /* Ensure images are displayed properly with smooth transitions */
+  :global(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Animation for product cards to enhance user experience */
+  .product-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Subtle hover effect to indicate interactivity */
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+</style> 
