@@ -1,0 +1,55 @@
+{
+  "name": "Phone Case - 3 Card",
+  "price": 49.00,
+  "images": [
+    {
+      "url": "/images/bags.jpg",
+      "fallbackUrl": "/images/bags.jpg",
+      "alt": "Phone Case - 3 Card Front View"
+    },
+    {
+      "url": "/images/accessories.avif",
+      "fallbackUrl": "/images/accessories.avif",
+      "alt": "Phone Case - 3 Card Side View"
+    },
+    {
+      "url": "/images/bags.jpg",
+      "fallbackUrl": "/images/bags.jpg",
+      "alt": "Phone Case - 3 Card Back View"
+    }
+  ],
+  "isBestseller": true,
+  "description": "A minimalist wallet and case for your iPhone",
+  "colors": [
+    {
+      "name": "Black",
+      "hex": "#1D1D1D",
+      "isSelected": true
+    },
+    {
+      "name": "Navy",
+      "hex": "#1C3156",
+      "isSelected": false
+    },
+    {
+      "name": "Sage",
+      "hex": "#A2AAA2",
+      "isSelected": false
+    },
+    {
+      "name": "Teal",
+      "hex": "#2F555D",
+      "isSelected": false
+    },
+    {
+      "name": "Cocoa",
+      "hex": "#4B3329",
+      "isSelected": false
+    },
+    {
+      "name": "Terracotta",
+      "hex": "#9E4D32",
+      "isSelected": false
+    }
+  ]
+} 
